@@ -1,7 +1,3 @@
-// sum an individual player's rolls and return their score for each frame
-// input is an array of rolls with possible values of zero through nine, a '/' for a spare, and an 'X' for a strike
-// return value is an array of scores for the frames the player has bowled
-
 const STRIKE_BASE_VALUE: number = 10;
 const SPARE_BASE_VALUE: number = 10;
 

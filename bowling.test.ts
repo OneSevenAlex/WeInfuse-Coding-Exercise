@@ -117,8 +117,8 @@ describe("scoreGame edge cases", () => {
     expect(scoreGame(testRolls)).toEqual(correctResults);
   });
 
-  // incomplete spare in the 10th frame
-  it("10th‑frame spare", () => {
+  // invalid spare in the 10th frame
+  it("10th‑frame invalid spare", () => {
     const testRolls: (number | "/" | "X")[] = [
       5,
       "/",
@@ -155,7 +155,7 @@ describe("scoreGame edge cases", () => {
   });
 
   // nearly perfect game...
-  it("10th frame: X 9 /", () => {
+  it("10th frame ending spare", () => {
     const testRolls: (number | "/" | "X")[] = [
       "X",
       "X",
