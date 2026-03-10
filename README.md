@@ -16,7 +16,7 @@ npm install
 ## Clone + run (quick start)
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/OneSevenAlex/WeInfuse-Coding-Exercise.git
 cd WeInfuse-Coding-Exercise
 npm install
 npm test
