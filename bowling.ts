@@ -26,15 +26,6 @@ export function isPartialSpareFrame(frame: (number | "/" | "X")[]): boolean {
   return frame.length === 1 && frame[0] === "/";
 }
 
-export function isSpareFrameScorable(frame: (number | "/" | "X")[]): boolean {
-  // if it is a spare frame, we need to check if the next roll exists to calculate the frame score
-  return (
-    isSpareFrame(frame) &&
-    frame.length === 3 &&
-    (typeof frame[2] === "number" || frame[2] === "X")
-  );
-}
-
 export function getNextFrameFromRolls(
   rolls: (number | "/" | "X")[],
   startIndex: number,
@@ -84,7 +75,7 @@ export function getAllFrames(
 export function scoreGame(rolls: (number | "/" | "X")[]): (number | null)[] {
   const frames = getAllFrames(rolls);
   const scores: (number | null)[] = [];
-  //return sumFrameScores(frames);
+
   for (let i = 0; i < frames.length; i++) {
     if (scores.length === 10) break;
     // calculate the score for each frame
@@ -174,9 +165,6 @@ export function scoreGame(rolls: (number | "/" | "X")[]): (number | null)[] {
     } else if (isPartialNumericFrame(frames[i])) {
       scores.push(null);
     } else if (isPartialSpareFrame(frames[i])) {
-      if (i > 0 && isSpareFrame(frames[i - 1])) {
-        throw new Error("Invalid roll sequence: a spare cannot follow a spare");
-      }
       scores.push(null);
     }
   }

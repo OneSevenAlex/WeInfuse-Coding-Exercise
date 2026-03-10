@@ -10,7 +10,7 @@ describe("scoreGame", () => {
   });
 });
 
-// additional tests for sumFrameScores
+// additional tests
 describe("scoreGame edge cases", () => {
   // empty rolls
   it("should return an empty array for no rolls", () => {
@@ -115,14 +115,6 @@ describe("scoreGame edge cases", () => {
     const testRolls: (number | "/" | "X")[] = [5, 5, 5, 5, 5, 5, "/"];
     const correctResults: (number | null)[] = [10, 10, 10, null];
     expect(scoreGame(testRolls)).toEqual(correctResults);
-  });
-
-  // illegal spare
-  it("should throw an error for an illegal spare", () => {
-    const testRolls: (number | "/" | "X")[] = [5, "/", "/"];
-    expect(() => scoreGame(testRolls)).toThrowError(
-      "Invalid roll sequence: a spare cannot follow a spare",
-    );
   });
 
   // incomplete spare in the 10th frame
